@@ -1,5 +1,5 @@
 node_modules
 
-public/
-videos/
-bg_image/
+client/public/videos/
+client/public/bg_image/
+
