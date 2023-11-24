@@ -1,3 +1,5 @@
 node_modules
-videos
-bg_image
+
+public/
+videos/
+bg_image/
