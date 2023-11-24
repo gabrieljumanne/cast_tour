@@ -15,6 +15,7 @@ const Home = () => {
     <div>
       <NavBar />
       <Hero />
+      <Destination />
       <Cta />
       <Activities />
       <TravelTips />

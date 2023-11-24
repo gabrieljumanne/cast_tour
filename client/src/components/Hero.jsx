@@ -38,7 +38,7 @@ const Hero = () => {
                         Discover the Beauty of <br /> Our Country
                       </h2>
                       <p className='mb-8 text-xl md:text-2xl '>
-                            Check Out The Most Popular Travel Destinations. Customizable Tour Packages Available. Start Your Adventure Today!
+                            Check out the most popular travel destinations. Customizable tour packages available. Start your adventure today!
 
                       </p>
                       <button

@@ -12,27 +12,7 @@ const Cta = () => {
                       Our travel experts can help you craft the perfect customized vacation package.
                       Contact us today to start planning your dream getaway?
                 </p>
-                <table className='w-[60%] h-[50px] mt-[10px] bg-white rounded-md px-[10px]' >
-                  <thead>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className=''>
-                      <td className='pl-[10px]'>
-                      
-                      <select name="" id="" className='relative outline-none w-full'>
-                        <option value="">mikumi</option>
-                      </select>
-                      </td>
-                      <td className='pl-[10px]'>Check in - Checkout</td>
-                      <td className='pl-[10px]'>Adults - Children</td>
-                    </tr>
-                  </tbody>
-                </table>
+            
             </div>
             <div className='mt-8 lg:mt-0 lg:ml-8 '>
                 <a 

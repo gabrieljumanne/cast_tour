@@ -1,4 +1,4 @@
-import {Home, Account, Checkout, Login, Signup, TourDetails, Tours} from "./page"
+import {Home, Account, Checkout, Login, Signup, TourDetails, Tours, Destinations} from "./page"
 
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 
@@ -15,6 +15,7 @@ function App() {
             <Route path="/signup" element={<Signup />}/>
             <Route path="/tourdetails" element={<TourDetails />}/>
             <Route path="/tours" element={<Tours />}/>
+            <Route path="/destinations" element={<Destinations />}/>
 
 
           </Routes>

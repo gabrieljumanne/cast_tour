@@ -6,6 +6,7 @@ import Signup from "./Signup"
 import Success from "./Success"
 import Tours from "./Tours"
 import TourDetails from "./TourDetails"
+import Destinations from "./Destinations"
 
 export {
     Account,
@@ -16,4 +17,5 @@ export {
     Success,
     Tours,
     TourDetails,
+    Destinations,
 }
