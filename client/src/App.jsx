@@ -18,11 +18,9 @@ function App() {
             <Route path="/destinations" element={<Destinations />}/>
             <Route path="/customizable" element={<CustomizableTourPackages />}/>
             <Route path="/hotel" element={<Hotel />}/>
-
-
-
           </Routes>
       </BrowserRouter>
+    
   )
 }
 

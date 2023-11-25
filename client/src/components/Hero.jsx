@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import {textVariants, containerVariants, text} from '../utility'
 import { useInView } from 'react-intersection-observer';
 import {fadeIn, staggerContainer,textContainer,textVariant, textVariant2} from '../utility/motion'
+import {useTheme} from '../hooks/useTheme';
+
 
 const Hero = () => {
   const [bgImage, setBgImage] = useState("");
@@ -11,6 +13,9 @@ const Hero = () => {
   const [isMemberDropdownOpen, setIsMemberDropdownOpen] = useState(false);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
+  const [darkTheme, toggleTheme] = useTheme();
+
+  const themClasses = darkTheme ? 'bg-[#1a1a1a] text-white' : 'text-black';
 
   const [ref, inView] = useInView(
     {
@@ -56,16 +61,16 @@ const Hero = () => {
   const destinations = ["Serengeti National Park", "Great Barrier Reef", "Machu Picchu"];
 
   return (
-    <header className="relative overflow-hidden h-[500px] w-full text-primary-500 bg-gray-500">
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.img
+    <header className={`relative overflow-hidden h-[500px] w-full ${themClasses} `}>
+      <div className={`absolute w-full inset-0 overflow-hidden`}>
+        {/* <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           src={bgImage}
           alt=""
           className="h-full w-full object-cover object-center"
-        />
+        /> */}
       </div>
       
       <div className="absolute inset-0 bg-black/40"></div>
@@ -80,7 +85,7 @@ const Hero = () => {
               variants={textContainer}
               initial="hidden"
               animate={inView? 'visible' : 'hidden'}
-              className='md:w-[60%] text-primary-500'
+              className={`${darkTheme?'bg-transparent':'text-black'} md:w-[60%]`}
               whileInView={{opacity:1, y:0}}
             >
               {text.split('').map((char, index) => (
@@ -89,7 +94,7 @@ const Hero = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.5 }}
                   whileInView='show'
-                  className="mb-8 text-4xl font-bold tracking-normal md:text-6xl"
+                  className={`${darkTheme?'bg-transparent':''} mb-8 text-4xl font-bold tracking-normal md:text-6xl`}
                 >
                   {char}
                 </motion.span>
@@ -103,10 +108,9 @@ const Hero = () => {
               {texts[textIndex]}
               {/* "Discover the Beauty of our country" */}
             </motion.p>
-            <div className="md:absolute top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col text-primary-500 ">
+            <div className={`md:absolute rounded-md top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col ${darkTheme?'bg-transparent text-white':' text-black'} `}>
               {/* Destination dropdown */}
-              <p>whre do you want to go?</p>
-              <select id="destination" className="bg-white rounded p-2 mb-4 outline-none hover:bg-gray-200">
+              <select id="destination" className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 outline-none hover:bg-[#333333]`}>
                 {destinations.map((destination, index) => (
                   <option key={index} value={destination}>
                     {destination}
@@ -114,24 +118,24 @@ const Hero = () => {
                 ))}
               </select>
               {/* Date picker */}
-              <input type="date" id="dates" className="bg-white rounded p-2 mb-4 hover:bg-gray-200 outline-none" />
+              <input type="date" id="dates" className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 hover:bg-[#333333] outline-none`} />
               {/* Members dropdown */}
               <div className="relative">
-                <button onClick={handleMembersDropdown} className="bg-white rounded p-2 hover:bg-gray-200">
+                <button onClick={handleMembersDropdown} className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 hover:bg-[#333333]`}>
                   Members..
                 </button>
                 {isMemberDropdownOpen && (
-                  <div className="absolute top-full lg:right-0 bg-white rounded p-4 border border-gray-300">
+                  <div className={`absolute top-full lg:right-0 ${darkTheme?'bg-[#1a1a1a] text-white':'bg-white text-black'} rounded p-4 border border-gray-300`}>
                     <div className="flex items-center mb-2">
                       <label htmlFor="adults" className="mr-2">Adults:</label>
                       <input type="number" id="adults" value={adults} onChange={handleAdultsChange} min={1} 
-                        className='outline-none'
+                        className={`outline-none ${darkTheme?'bg-[#333333]':''}`}
                       />
                     </div>
                     <div className="flex items-center">
                       <label htmlFor="children" className="mr-2">Children:</label>
                       <input type="number" id="children" value={children} onChange={handleChildrenChange} min={0} 
-                        className='outline-none'
+                        className={`outline-none ${darkTheme?'bg-[#333333]':''}`}
                       />
                     </div>
                     <button onClick={handleCloseDropdown} className="mt-2 bg-pink-700 text-white rounded px-4 py-2">

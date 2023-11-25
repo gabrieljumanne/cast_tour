@@ -1,4 +1,6 @@
 import React from 'react'
+import { ThemeProvider } from "../contexts/ThemeContext"
+
 import {
   Activities,
   Cta,
@@ -12,16 +14,18 @@ import {
 
 const Home = () => {
   return (
-    <div>
-      <NavBar />
-      <Hero />
-      <Destination />
-      <Cta />
-      <Activities />
-      <TravelTips />
-      <Testimonials />
-      <Footer />
-    </div>
+    
+      <ThemeProvider>
+        <NavBar />
+        <Hero />
+        <Destination />
+        <Cta />
+        <Activities />
+        <TravelTips />
+        <Testimonials />
+        <Footer />
+      </ThemeProvider>
+    
 
   )
 }
