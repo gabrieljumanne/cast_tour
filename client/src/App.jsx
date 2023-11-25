@@ -1,4 +1,4 @@
-import {Home, Account, Checkout, Login, Signup, TourDetails, Tours, Destinations} from "./page"
+import {Home, Account, Checkout, Login, Signup, TourDetails, Tours, Destinations, CustomizableTourPackages, Hotel} from "./page"
 
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 
@@ -16,6 +16,9 @@ function App() {
             <Route path="/tourdetails" element={<TourDetails />}/>
             <Route path="/tours" element={<Tours />}/>
             <Route path="/destinations" element={<Destinations />}/>
+            <Route path="/customizable" element={<CustomizableTourPackages />}/>
+            <Route path="/hotel" element={<Hotel />}/>
+
 
 
           </Routes>

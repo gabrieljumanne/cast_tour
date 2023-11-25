@@ -1,42 +1,48 @@
-
+import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const navigation = {
   company: [
-    { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers"},
-    { name: "Newsroom", href: "/newsroom"},
+    { name: 'About', href: '/about' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Newsroom', href: '/newsroom' },
+    { name: 'Customize', href: '/customizable' }, // Adding a Customize link for customizable tour packages
+    // Add more future page links as needed
   ],
   legal: [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms"},
+    { name: 'Privacy', href: '/privacy' },
+    { name: 'Terms', href: '/terms' },
   ],
   social: [
     {
-      name: "Facebook",
+      name: 'Facebook',
       icon: FaFacebook,
-      href: "#",
+      href: '#',
     },
     {
-      name: "Twitter",
+      name: 'Twitter',
       icon: FaTwitter,
-      href: "#",
+      href: '#',
     },
     {
-      name: "LinkedIn",
+      name: 'LinkedIn',
       icon: FaLinkedin,
-      href: "#",
-    },    
+      href: '#',
+    },
   ],
 };
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="bg-gray-900 text-white"
+    >
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-
-          {/* Company links */}
           <div>
             <h3 className="text-sm font-semibold">Company</h3>
             <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-300">
@@ -47,13 +53,9 @@ export default function Footer() {
               ))}
             </nav>
           </div>
-
-          {/* Legal links */}
           <div>
-           {/* ... */}  
+            {/* Legal links */}
           </div>
-
-          {/* Social links */}
           <div className="col-span-2 mt-12 space-y-8 md:mt-0 md:col-span-1">
             {navigation.social.map((item) => (
               <a
@@ -67,14 +69,13 @@ export default function Footer() {
               </a>
             ))}
           </div>
-        
         </div>
-
         <p className="mt-8 text-center text-xs text-gray-500">
-          &copy; 2023 cast_tour, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} cast_tour, Inc. All rights reserved.
         </p>
-
       </div>
-    </footer>
+    </motion.footer>
   );
-}
+};
+
+export default Footer;

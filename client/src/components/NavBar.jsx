@@ -46,6 +46,7 @@ export default function Navbar() {
           <li><a href="/">Home</a></li>
           <li><a href="/destinations">Destinations</a></li>
           <li><a href="/tours">Tours</a></li>
+          <li><a href="/customizable">Packages</a></li>
           <li><a href="/about">About</a></li>        
         </ul>
       
@@ -64,6 +65,14 @@ export default function Navbar() {
 
             <li className="text-xl font-medium hover:text-primary-600">
               <a href="/tours">Tours</a>
+            </li>
+
+            <li className="text-xl font-medium hover:text-primary-600">
+              <a href="/customizable">Packages</a>
+            </li>
+
+            <li className="text-xl font-medium hover:text-primary-600">
+              <a href="/hotel">Hotel</a>
             </li>
           </ul>
         </div>

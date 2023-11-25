@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {textVariants, containerVariants, text} from '../utility'
+import { useInView } from 'react-intersection-observer';
+import {fadeIn, staggerContainer,textContainer,textVariant, textVariant2} from '../utility/motion'
 
 const Hero = () => {
   const [bgImage, setBgImage] = useState("");
@@ -9,6 +11,13 @@ const Hero = () => {
   const [isMemberDropdownOpen, setIsMemberDropdownOpen] = useState(false);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
+
+  const [ref, inView] = useInView(
+    {
+      triggerOnce:false,
+      threshold:0.5,
+    }
+  )
 
   useEffect(() => {
     // Fetch random background image from API
@@ -66,16 +75,20 @@ const Hero = () => {
 
           <div className="w-full px-6 py-8 md:py-24 md:w-[90%] md:max-w-full relative">
             <motion.div
-              variants={containerVariants}
+
+              ref={ref}
+              variants={textContainer}
               initial="hidden"
-              animate="visible"
+              animate={inView? 'visible' : 'hidden'}
               className='md:w-[60%] text-primary-500'
+              whileInView={{opacity:1, y:0}}
             >
               {text.split('').map((char, index) => (
-                <motion.span key={index} variants={textVariants}
+                <motion.span key={index} variants={fadeIn('right', 'spring', index*0.2,0.2)}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.5 }}
+                  whileInView='show'
                   className="mb-8 text-4xl font-bold tracking-normal md:text-6xl"
                 >
                   {char}
@@ -92,6 +105,7 @@ const Hero = () => {
             </motion.p>
             <div className="md:absolute top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col text-primary-500 ">
               {/* Destination dropdown */}
+              <p>whre do you want to go?</p>
               <select id="destination" className="bg-white rounded p-2 mb-4 outline-none hover:bg-gray-200">
                 {destinations.map((destination, index) => (
                   <option key={index} value={destination}>
