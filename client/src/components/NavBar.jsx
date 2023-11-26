@@ -45,15 +45,15 @@ export default function Navbar() {
 
         {/* //transparent */}
         <div 
-        className={`absolute ${darkTheme?'bg-[#1a1a1a] text-white':'text-black'} top-[60px] h-[220px] w-[200px] px-[20px] bg-white z-10 origin-top-right transition-all duration-300 
+        className={`absolute ${darkTheme?'bg-[#1a1a1a] text-white':'text-black shadow-lg bg-white'} top-[60px] h-[220px] w-[200px] px-[20px] z-10 origin-top-right transition-all duration-300 
         ${isOpen ? 'right-0' : '-right-full'}
         `}>
         
         <ul
-          className={`${darkTheme?'bg-[#1a1a1a] text-white':''} rounded pl-[5px]`}
+          className={`${darkTheme?'bg-[#262626] text-white':''} h-[200px] rounded pl-[5px] py-[10px]`}
         >
           <li
-            className='mb-[10px] border-b border-[#333333]'
+            className='mb-[10px] border-b border-[#333333] mt-[10px]'
           ><a href="/">Home</a></li>
           <li className='mb-[10px] border-b border-[#333333]'><a href="/destinations">Destinations</a></li>
           <li className='mb-[10px] border-b border-[#333333]'><a href="/tours">Tours</a></li>

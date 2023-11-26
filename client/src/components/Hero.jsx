@@ -14,7 +14,7 @@ const Hero = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [darkTheme, toggleTheme] = useTheme();
-  const [input, setInput] = useState('Where do you want to go');
+  const [input, setInput] = useState('Where do you want to go?');
   const [listVisible, setListVisible] =useState(false)
 
   const themClasses = darkTheme ? 'bg-[#1a1a1a] text-white' : 'text-black';
@@ -67,7 +67,7 @@ const Hero = () => {
   const destinations = ["Serengeti National Park", "Great Barrier Reef", "Machu Picchu"];
 
   return (
-    <header className={`relative overflow-hidden h-[500px] w-full ${themClasses} `}>
+    <header className={`relative overflow-hidden h-[500px] w-full bottom-0 ${themClasses} `}>
       <div className={`absolute w-full inset-0 overflow-hidden`}>
         {/* <motion.img
           initial={{ opacity: 0 }}
@@ -79,7 +79,7 @@ const Hero = () => {
         /> */}
       </div>
       
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className={`absolute inset-0 ${darkTheme?'bg-[#1a1a1a]':' border-b'} `}></div>
       <div className=" relative w-full text-white">
 
         <div className="items-center h-full md:w-full pt-8 md:pt-0 md:flex md:justify-center">
@@ -110,19 +110,20 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
+              className={`${darkTheme?'':'text-black'}`}
             >
               {texts[textIndex]}
               {/* "Discover the Beauty of our country" */}
             </motion.p>
-            <div className={`md:absolute rounded-md top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col ${darkTheme?'bg-transparent text-white':' text-black'} `}>
+            <div className={`md:absolute rounded top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col ${darkTheme?'bg-[#262626] border-[1px] border-[#262626] text-white':' border-[1px] border-[#262626] text-black shadow'} `}>
               {/* Destination dropdown */}
-              <input type="text" readOnly className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 hover:bg-[#333333] cursor-pointer outline-none`} 
+              <input type="text" readOnly className={`${darkTheme?'bg-[#262626] hover:bg-[#333333]':'bg-white hover:bg-[#e6e6e6]'} p-2 mb-4 cursor-pointer outline-none`} 
                 value={input}
                 onClick={()=>{setListVisible(!listVisible)}}
               />
 
               <ul
-                className={`bg-[#1a1a1a] md:w-[300px] md:top-[30%] z-10 ${listVisible?'block':'hidden'} ${darkTheme?'bg-[#1a1a1a] text-white':'bg-white text-black border-[#1a1a1a]'} right-0 md:max-w-[264px] absolute`}
+                className={`bg-[#1a1a1a] md:w-[320px] md:top-[30%] z-10 ${listVisible?'block':'hidden'} ${darkTheme?'bg-[#1a1a1a] text-white':'bg-white text-black border-[#1a1a1a]'} right-0 md:max-w-[264px] absolute`}
               >
                 {destinations.map((destination)=>(
                   <li className='mb-[20px] py-[10px] px-[10px] border-b border-[#333333] cursor-pointer'
@@ -135,10 +136,10 @@ const Hero = () => {
               </ul>
               
               {/* Date picker */}
-              <input type="date" id="dates" className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 hover:bg-[#333333] outline-none`} />
+              <input type="date" id="dates" className={`${darkTheme?'bg-[#262626] hover:bg-[#333333]':'bg-white hover:bg-[#e6e6e6]'} rounded p-2 mb-4 cursor-pointer outline-none`} />
               {/* Members dropdown */}
               <div className="relative">
-                <button onClick={handleMembersDropdown} className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 hover:bg-[#333333]`}>
+                <button onClick={handleMembersDropdown} className={`${darkTheme?'ml-[10px] mb-[10px]':' mb-[10px] ml-[10px]'} bg-primary-500 rounded p-2 hover:bg-primary-600`}>
                   Members..
                 </button>
                 {isMemberDropdownOpen && (
