@@ -14,6 +14,8 @@ const Hero = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [darkTheme, toggleTheme] = useTheme();
+  const [input, setInput] = useState('Where do you want to go');
+  const [listVisible, setListVisible] =useState(false)
 
   const themClasses = darkTheme ? 'bg-[#1a1a1a] text-white' : 'text-black';
 
@@ -56,6 +58,10 @@ const Hero = () => {
   const handleCloseDropdown = () => {
     setIsMemberDropdownOpen(false);
   };
+
+  const handleListVisible =()=>{
+
+  }
 
   // Placeholder data for destination and members dropdown
   const destinations = ["Serengeti National Park", "Great Barrier Reef", "Machu Picchu"];
@@ -110,13 +116,24 @@ const Hero = () => {
             </motion.p>
             <div className={`md:absolute rounded-md top-0 right-0 mt-[10%] mb-[10px] mr-6 flex flex-col ${darkTheme?'bg-transparent text-white':' text-black'} `}>
               {/* Destination dropdown */}
-              <select id="destination" className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 outline-none hover:bg-[#333333]`}>
-                {destinations.map((destination, index) => (
-                  <option key={index} value={destination}>
-                    {destination}
-                  </option>
+              <input type="text" readOnly className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 hover:bg-[#333333] cursor-pointer outline-none`} 
+                value={input}
+                onClick={()=>{setListVisible(!listVisible)}}
+              />
+
+              <ul
+                className={`bg-[#1a1a1a] md:w-[300px] md:top-[30%] z-10 ${listVisible?'block':'hidden'} ${darkTheme?'bg-[#1a1a1a] text-white':'bg-white text-black border-[#1a1a1a]'} right-0 md:max-w-[264px] absolute`}
+              >
+                {destinations.map((destination)=>(
+                  <li className='mb-[20px] py-[10px] px-[10px] border-b border-[#333333] cursor-pointer'
+                    onClick={()=>{
+                      setInput(destination)
+                      setListVisible(!listVisible)
+                    }}
+                  >{destination}</li>
                 ))}
-              </select>
+              </ul>
+              
               {/* Date picker */}
               <input type="date" id="dates" className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} rounded p-2 mb-4 hover:bg-[#333333] outline-none`} />
               {/* Members dropdown */}
