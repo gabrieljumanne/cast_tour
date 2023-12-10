@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
 const activities = [
   {
@@ -24,15 +25,17 @@ const activities = [
 ];
 
 const Activities = () => {
+  const [darkTheme, toggleTheme] = useTheme();
+
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className={`${darkTheme?'bg-[#1a1a1a] text-white':'max-w-7xl mx-auto'} w-full py-12 px-4 sm:px-6 lg:px-8`}>
       <h2 className="text-3xl font-semibold mb-6">Featured Activities</h2>
-      <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3">
+      <div className={`${darkTheme? '':''} grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3`}>
         {activities.map((activity) => (
           <motion.div
             key={activity.id}
             whileHover={{ scale: 1.05 }}
-            className="group relative bg-white border border-gray-200 rounded-lg h-96 flex shadow-sm overflow-hidden cursor-pointer"
+            className={`group relative ${darkTheme?'bg-[#262626] border-[#333333]':'bg-white border-gray-200'}  border rounded-lg h-96 flex shadow-sm overflow-hidden cursor-pointer`}
           >
             <motion.img
               src={activity.image}

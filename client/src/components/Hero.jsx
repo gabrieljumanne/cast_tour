@@ -67,7 +67,7 @@ const Hero = () => {
   const destinations = ["Serengeti National Park", "Great Barrier Reef", "Machu Picchu"];
 
   return (
-    <header className={`relative overflow-hidden h-[500px] w-full bottom-0 ${themClasses} `}>
+    <header className={`relative overflow-hidden pb-[20px] h-[500px] w-full bottom-0 ${themClasses} `}>
       <div className={`absolute w-full inset-0 overflow-hidden`}>
         {/* <motion.img
           initial={{ opacity: 0 }}
@@ -139,7 +139,7 @@ const Hero = () => {
               <input type="date" id="dates" className={`${darkTheme?'bg-[#262626] hover:bg-[#333333]':'bg-white hover:bg-[#e6e6e6]'} rounded p-2 mb-4 cursor-pointer outline-none`} />
               {/* Members dropdown */}
               <div className="relative">
-                <button onClick={handleMembersDropdown} className={`${darkTheme?'ml-[10px] mb-[10px]':' mb-[10px] ml-[10px]'} bg-primary-500 rounded p-2 hover:bg-primary-600`}>
+                <button onClick={handleMembersDropdown} className={`${darkTheme?'ml-[10px] mb-[10px]':' mb-[10px] ml-[10px]'} bg-pink-700 font-bold text-white shadow rounded p-2 hover:bg-pink-500`}>
                   Members..
                 </button>
                 {isMemberDropdownOpen && (
@@ -156,7 +156,7 @@ const Hero = () => {
                         className={`outline-none ${darkTheme?'bg-[#333333]':''}`}
                       />
                     </div>
-                    <button onClick={handleCloseDropdown} className="mt-2 bg-pink-700 text-white rounded px-4 py-2">
+                    <button onClick={handleCloseDropdown} className="mt-2 bg-pink-700 font-bold text-white shadow hover:bg-pink-500 text-white rounded px-4 py-2">
                       Apply
                     </button>
                   </div>

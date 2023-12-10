@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
 const tips = [
   {
@@ -30,8 +31,11 @@ const tips = [
 ];
 
 const TravelTips = () => {
+
+  const [darkTheme, toggleTheme] = useTheme();
+
   return (
-    <div className="bg-gray-100 py-12">
+    <div className={`${darkTheme? 'bg-[#1a1a1a] text-white':'bg-gray-100'}  py-12`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold mb-6">Travel Tips</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
@@ -39,10 +43,10 @@ const TravelTips = () => {
             <motion.div
               key={tip.id}
               whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg border border-gray-100 p-4 shadow-sm overflow-hidden cursor-pointer"
+              className={`${darkTheme?'bg-[#262626] border-[#333333]':'bg-white border-gray-100'}  rounded-lg border  p-4 shadow-sm overflow-hidden cursor-pointer`}
             >
               <h3 className="font-semibold text-lg mb-3">{tip.title}</h3>
-              <p className="text-gray-600">{tip.description}</p>
+              <p className="text-gray-500">{tip.description}</p>
             </motion.div>
           ))}
         </div>

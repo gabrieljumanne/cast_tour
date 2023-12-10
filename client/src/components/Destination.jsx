@@ -45,11 +45,11 @@ const themClasses = darkTheme ? 'bg-[#1a1a1a] text-white' : 'bg-white text-black
 
   return (
     <div 
-      className={`${darkTheme?'bg-[#1a1a1a]':''} mt-0 pb-[#10px]`}
+      className={`${darkTheme?'bg-[#1a1a1a]':''} mt-0 pb-[#10px] mb-[0px]`}
     >
       <h2 className={`text-3xl ml-[100px] mt-[0px] font-semibold mb-6 ${darkTheme?'text-white':'text-black'}`}>Popular Destinations</h2>
-      <div className={`max-w-7xl border-2 border-black/40 rounded mb-[10px] mx-auto py-12 px-4 sm:px-6 lg:px-8 ${darkTheme?'bg-[#262626]':''}`}>
-        <div className={`${darkTheme?'bg-[#333333]':''} grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3`}>
+      <div className={`max-w-7xl border-[1px] border-black/40 rounded mb-[0px] mx-auto py-12 px-4 sm:px-6 lg:px-8 ${darkTheme?'bg-[#262626]':''}`}>
+        <div className={`${darkTheme?'bg-[#262626]':''} grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3`}>
           {destinations.map((destination) => (
             <motion.div
               key={destination.id}

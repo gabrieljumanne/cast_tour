@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
 const testimonials = [
   {
@@ -26,22 +27,25 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+
+  const [darkTheme, toggleTheme] = useTheme();
+
   return (
-    <section className="bg-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`${darkTheme?'bg-[#1a1a1a] text-white':'bg-white'} py-12`}>
+      <div className={`${darkTheme?'border border-[#333333] rounded pb-[20px]':''} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
         <h2 className="text-3xl font-semibold mb-6">Client Testimonials</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {testimonials.map((item) => (
             <motion.div
               key={item.id}
               whileHover={{ scale: 1.05 }}
-              className="border rounded-lg border-gray-100 p-6 bg-gray-50 overflow-hidden cursor-pointer"
+              className={`${darkTheme?'bg-[#262626] border-[#333333]':'bg-gray-50 border-gray-100'} border rounded-lg p-6  overflow-hidden cursor-pointer`}
             >
               <img src={item.img} alt="" className="w-16 h-16 mb-4 rounded-full mx-auto" />
-              <p className="text-gray-600 text-center mb-4">
-                <span className="font-bold text-lg text-gray-900">{item.quote}</span>
+              <p className={`${darkTheme?'text-white':'text-gray-600'}  text-center mb-4`}>
+                <span className={`${darkTheme?'text-white':'text-gray-900'}  font-bold text-lg`}>{item.quote}</span>
               </p>
-              <p className="text-center text-xl mb-4 font-medium text-gray-900">{item.name}</p>
+              <p className={`${darkTheme?'text-white':'text-gray-900'}  text-center text-xl mb-4 font-medium `}>{item.name}</p>
             </motion.div>
           ))}
         </div>

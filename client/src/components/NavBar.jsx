@@ -95,10 +95,10 @@ export default function Navbar() {
         </div>
   
         <div className="hidden space-x-2 md:inline-block">
-          <a className="px-4 py-2 text-base font-medium text-center text-white transition bg-primary-500 rounded-md hover:bg-primary-600">
+          <a className="px-4 py-2 text-base font-medium text-center transition bg-pink-700 font-bold text-white shadow rounded-md hover:bg-pink-500">
             Sign in
           </a>
-          <a className="px-4 py-2 text-base font-medium text-center text-primary-500 transition bg-transparent border border-primary-500 rounded-md hover:bg-primary-100">
+          <a className="px-4 py-2 text-base font-medium text-center text-pink-500 transition bg-transparent border border-pink-500 rounded-md hover:bg-pink-100">
             Sign up
           </a>
         </div>

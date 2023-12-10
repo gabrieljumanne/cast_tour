@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
 const navigation = {
   company: [
@@ -34,20 +35,23 @@ const navigation = {
 };
 
 const Footer = () => {
+  const [darkTheme, toggleTheme] = useTheme();
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-gray-900 text-white"
+      className={`${darkTheme?'bg-[#1a1a1a]':'bg-white'} text-white`}
     >
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className={`max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8`}>
+        <div className={`${darkTheme?'':'bg-[#333333] pl-[20px] rounded'} grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6`}>
           <div>
             <h3 className="text-sm font-semibold">Company</h3>
-            <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-300">
+            <nav className={`mt-4 flex flex-col space-y-2 text-sm text-gray-300`}>
               {navigation.company.map((item) => (
-                <a key={item.name} href={item.href}>
+                <a className={`${darkTheme?'':''} hover:text-white`}
+                key={item.name} href={item.href}>
                   {item.name}
                 </a>
               ))}
