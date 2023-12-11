@@ -69,14 +69,14 @@ const Hero = () => {
   return (
     <header className={`relative overflow-hidden pb-[20px] h-[500px] w-full bottom-0 ${themClasses} `}>
       <div className={`absolute w-full inset-0 overflow-hidden`}>
-        {/* <motion.img
+        <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           src={bgImage}
           alt=""
           className="h-full w-full object-cover object-center"
-        /> */}
+        />
       </div>
       
       <div className={`absolute inset-0 ${darkTheme?'bg-[#1a1a1a]':' border-b'} `}></div>

@@ -54,7 +54,7 @@ const CustomizableTourPackages = () => {
               
               >{packageItem.title}</h3>
 
-              <button className="mt-4 md:absolute md:right-0 md:w-[30px] md:h-[30px] top-0 bg-gray-500 hover:bg-blue-600 text-white font-semibold py-0 px-0 rounded-[50%]"
+              <button className="mt-4 md:absolute md:right-0 md:w-[40px] md:h-[20px] top-0 text-gray-500 hover:bg-gray-600 hover:text-white bg-white font-semibold py-0 px-0 rounded"
                 onClick={()=>{
                     setPackageTitle(packageItem.title);
                     setPackageDescription(packageItem.description);
@@ -149,7 +149,7 @@ const CustomizableTourPackages = () => {
         {/* Submit button */}
         <button
           type="button"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+          className="bg-pink-700 hover:bg-pink-500 shadow text-white font-semibold py-2 px-4 rounded"
           onClick={()=>{setCustomize(!customize)}}
         >
           Submit
