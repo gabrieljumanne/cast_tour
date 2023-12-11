@@ -22,7 +22,7 @@ export default function Navbar() {
 
         <div className="flex items-center justify-between">
           <div>
-            <a className="text-xl font-bold text-primary-500 md:text-2xl" href="/">
+            <a className="text-xl font-bold text-pink-700 md:text-2xl" href="/">
               Brand
             </a>  
           </div>
@@ -67,11 +67,6 @@ export default function Navbar() {
         <div className='flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 hidden'>
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
 
-          <li className="text-xl font-medium hover:text-primary-600">
-              <button
-                onClick={toggleTheme}
-              >Dark</button>
-            </li>
             <li className="text-xl font-medium hover:text-primary-600">
               <a href="/">Home</a>
             </li>
@@ -90,6 +85,12 @@ export default function Navbar() {
 
             <li className="text-xl font-medium hover:text-primary-600">
               <a href="/hotel">Hotel</a>
+            </li>
+
+            <li className="text-xl font-medium hover:text-primary-600">
+              <button
+                onClick={toggleTheme}
+              >Dark</button>
             </li>
           </ul>
         </div>

@@ -61,7 +61,7 @@ const AvailabilityDetails = ({ hotelName }) => {
         </p>
         {/* Additional hotel details */}
         {/* Add a button for booking or checking availability */}
-        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        <button className="mt-4 bg-pink-700 hover:bg-pink-500 text-white font-semibold py-2 px-4 rounded"
           onClick={toggleAvailabilityModal}
         >
           Check Availability
